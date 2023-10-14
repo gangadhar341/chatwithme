@@ -8,9 +8,14 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://chatwithme-zuf0.onrender.com",
+];
+
 app.use(
   cors({
-    origin: "*",
+    origin: allowedOrigins,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // This option enables cookies and other credentials to be sent with the request
   })
@@ -69,8 +74,9 @@ connectDB()
       const io = require("socket.io")(server, {
         /* pingTimeout: 60000, */
         cors: {
-          origin: "http://localhost:3000",
-          // credentials: true,
+          origin: allowedOrigins,
+          methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+          credentials: true,
         },
       });
       io.on("connection", (socket) => {
