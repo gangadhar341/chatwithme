@@ -50,7 +50,18 @@ Start the Client
   cd frontend
   npm start
 ```
+# Features
+### Authenticaton
+![login](https://github.com/gangadhar341/chatwithme/raw/main/screenshots/login.png)
+![register](https://github.com/gangadhar341/chatwithme/raw/main/screenshots/register.png)
+### One to One chat
+![home](https://github.com/gangadhar341/chatwithme/raw/main/screenshots/homePage.png)
+### Search Users
+![search](https://github.com/gangadhar341/chatwithme/raw/main/screenshots/search.png)
+### Notifications
+![noti](https://github.com/gangadhar341/chatwithme/raw/main/screenshots/notifications.png)
+### Messages
+![messages](https://github.com/gangadhar341/chatwithme/raw/main/screenshots/messages.png)
 
 ## Made By
-
 - [@Gangadhar](https://github.com/gangadhar341)
