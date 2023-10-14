@@ -1,0 +1,51 @@
+.navbar {
+  height: 50px;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+}
+/* .name {
+  padding-left: 5px;
+} */
+.user {
+  display: flex;
+  gap: 10px;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+img {
+  background-color: #fff;
+  height: 24px;
+  width: 24px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+input[type="file"] {
+  display: none;
+}
+button {
+  background-color: #32c191;
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 13px;
+  border: none;
+  outline: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.ring {
+  border: 1px solid #ccc;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}

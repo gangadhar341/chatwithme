@@ -1,0 +1,107 @@
+.message {
+  display: flex;
+  gap: 20px;
+}
+.message .messageContainer {
+  overflow: hidden;
+  display: flex;
+  background-color: #646496;
+  border-radius: 20px 20px 20px 0px;
+  max-width: max-content;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: auto;
+}
+.message .messageContainer p {
+  max-width: max-content;
+  width: 250px;
+  word-wrap: break-word;
+  height: auto;
+  padding-left: 7px;
+  padding-top: 3px;
+  margin: 0;
+}
+.message .messageContainer span {
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: 10px;
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 7px;
+}
+
+/* .message .messageContainer {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  max-width: 80%;
+}
+.message .messageContainer p {
+  background-color: #fff;
+  padding: 10px 20px 10px 0;
+  margin-bottom: 5px;
+  border-radius: 20px 20px 20px 0px;
+  max-width: max-content;
+} */
+/* .message .messageInfo {
+  margin-bottom: 20px;
+  color: gray;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+} */
+
+.owner {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.owner .messageContainer {
+  overflow: hidden;
+  display: flex;
+  /*  flex-direction: row-reverse; */
+  background-color: #646496;
+  border-radius: 20px 20px 0px 20px;
+  max-width: max-content;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: auto;
+}
+
+.owner .messageContainer p {
+  max-width: max-content;
+  width: 250px;
+  word-wrap: break-word;
+  height: auto;
+  padding-right: 7px;
+  padding-left: 10px;
+  padding-top: 3px;
+  margin: 0;
+}
+.owner .messageContainer span {
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: 10px;
+  padding-top: 15px;
+  padding-right: 10px;
+}
+
+.type {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/* .owner .messageInfo {
+  margin-bottom: 20px;
+  color: gray;
+  font-weight: 300;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+} */
+/* .owner .messageContainer p {
+  background-color: #646496;
+  padding: 10px 20px;
+  max-width: max-content;
+  color: #fff;
+  border-radius: 20px 20px 0px 20px;
+} */

@@ -1,0 +1,24 @@
+.messages {
+  background-color: #ddddf7;
+  padding: 10px;
+  height: calc(100% - 100px);
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.messages::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+.messages::-webkit-scrollbar-thumb {
+  background-color: #333; /* Color of the scrollbar thumb (the draggable part) */
+  border-radius: 6px;
+  cursor: pointer; /* Rounded corners for the thumb */
+}
+.messages::-webkit-scrollbar-thumb:hover {
+  background-color: black;
+  /* Color when hovering over the thumb */
+}
+.messages {
+  scrollbar-width: thin;
+  scrollbar-color: #007bff #f0f0f0; /* Thumb and track colors */
+}

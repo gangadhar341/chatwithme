@@ -1,0 +1,30 @@
+.empty {
+  display: flex;
+  flex: 2;
+  justify-content: center;
+  align-items: center;
+}
+.empty p {
+  color: #3333;
+  font-size: 50px;
+}
+
+.chat {
+  flex: 2;
+  height: 100%;
+}
+
+.personChat {
+  height: 50px;
+  background-color: rgb(41, 154, 117);
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  gap: 10px;
+}
+.personChat img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}

@@ -1,0 +1,121 @@
+/* body {
+  font-family: "Raleway", sans-serif;
+  color: #333;
+  background: #081b29;
+  line-height: 1.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.container {
+  margin: 30px auto;
+  max-width: 400px;
+  padding: 20px;
+  overflow-x: hidden;
+}
+.wrapper {
+  height: 380px;
+  background: aqua;
+  border: 1px solid #333;
+  padding: 15px 20px;
+  color: #333;
+  border-radius: 30px;
+}
+.wrapper h1 {
+  text-align: center;
+}
+.wrapper .input-box {
+  position: relative;
+  color: #333;
+  width: 310px;
+  margin: 20px 0px;
+  padding: 0px;
+  border-bottom: 2px solid #333;
+}
+.input-box .icon {
+  position: absolute;
+  right: 5px;
+  color: #333;
+}
+.input-box .icon:hover {
+  cursor: pointer;
+}
+.input-box label {
+  position: absolute;
+  color: #333;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  transition: 0.5s;
+  font-size: 1em;
+  pointer-events: none;
+}
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+}
+.input-box input {
+  background-color: transparent;
+  color: #333;
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.wrapper .check-div span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.register-div {
+  width: 100%;
+}
+.register-div .btn {
+  width: 100%;
+  background-color: #081b29;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 15px;
+  padding: 10px 0px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+.register-div .btn:hover {
+  background-color: #333;
+}
+.container .log {
+  width: 100%;
+}
+.container .log p {
+  text-align: center;
+}
+.container .log p span a {
+  text-decoration: none;
+  color: #333;
+}
+.container .log p span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
