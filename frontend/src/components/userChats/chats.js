@@ -80,13 +80,15 @@ function Chats() {
   }, []);
 
   useEffect(() => {
-    //console.log("hii");
-    socket.on("notify", updateNoti);
+    //console.log(socket);
+    if (socket) {
+      socket.on("notify", updateNoti);
+    }
 
-    return () => {
+    /*  return () => {
       // console.log("unmount");
       socket.off("notify", updateNoti);
-    };
+    }; */
   });
 
   return (

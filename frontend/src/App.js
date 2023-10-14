@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/login/login.js";
 import PageNotFound from "./pagenotfound.js";
 import ErrorBoundary from "./components/Error/errorBoundary.js";
+import SocketProvider from "./components/context/socketContext.js";
 
 const Register = React.lazy(() => import("./components/login/register.js"));
 const Home = React.lazy(() => import("./components/Home/home.js"));
@@ -34,7 +35,9 @@ function App() {
                 }
               >
                 <Suspense fallback={<div>loading...</div>}>
-                  <Home />
+                  <SocketProvider>
+                    <Home />
+                  </SocketProvider>
                 </Suspense>
               </ErrorBoundary>
             }

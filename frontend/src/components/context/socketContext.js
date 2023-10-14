@@ -35,10 +35,15 @@ export function SocketProvider({ children }) {
     //console.log(selectedChat);
     // newSocket.emit("setup", selectedChat);
     //newSocket.on("connected", () => setSocketConnected(true));
-
+    //console.log(newSocket);
     // Set the socket in the state
     setSocket(newSocket);
 
+    newSocket.on("connect_error", (error) => {
+      console.error("Socket.IO connection error:", error);
+    });
+
+    //console.log(socket);
     // Clean up the socket when the component unmounts
     return () => {
       newSocket.disconnect();

@@ -5,6 +5,8 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 
+const path = require("path");
+
 const connectDB = require("./mongoose_conn.js");
 
 const cors = require("cors");
@@ -34,13 +36,31 @@ app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 app.use("/api/notification", notificationRoutes);
 
+//---------------------------Deployment----------------
+
+const __dirname1 = path.resolve();
+//console.log(path.join(__dirname1, "../frontend/build"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "../frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, "../frontend", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
+//---------------------------Deployment----------------
 app.use(notFound);
 app.use(errorHandler);
 
 connectDB()
   .then(() => {
-    const server = app.listen(3001, () => {
-      console.log("server is running on http://localhost:3001");
+    const PORT = process.env.PORT;
+    const server = app.listen(PORT, () => {
+      console.log(`server is running on http://localhost:${PORT}`);
 
       const io = require("socket.io")(server, {
         /* pingTimeout: 60000, */

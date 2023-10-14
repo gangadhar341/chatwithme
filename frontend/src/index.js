@@ -7,13 +7,11 @@ import "./index.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js"; */
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import App from "./App.js";
-import SocketProvider from "./components/context/socketContext.js";
+//import SocketProvider from "./components/context/socketContext.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChatProvider>
-    <SocketProvider>
-      <App />
-    </SocketProvider>
+    <App />
   </ChatProvider>
 );
