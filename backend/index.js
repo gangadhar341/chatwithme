@@ -6,10 +6,17 @@ const app = express();
 const bodyParser = require("body-parser");
 
 const path = require("path");
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // This option enables cookies and other credentials to be sent with the request
+  })
+);
 
 const connectDB = require("./mongoose_conn.js");
-
-const cors = require("cors");
 
 const userRoutes = require("./routes/userRoutes.js");
 const { notFound, errorHandler } = require("./middleware/errorMiddlewares.js");
@@ -20,18 +27,10 @@ const notificationRoutes = require("./routes/notificationRoutes.js");
 app.use(bodyParser.json({ limit: "5mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const allowedOrigins = [
+/* const allowedOrigins = [
   "http://localhost:3000",
   "https://chatwithme-zuf0.onrender.com",
-];
-
-app.use(
-  cors({
-    origin: allowedOrigins,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true, // This option enables cookies and other credentials to be sent with the request
-  })
-);
+]; */
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
