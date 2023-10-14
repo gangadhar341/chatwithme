@@ -18,13 +18,14 @@ const register = async (req, res) => {
     password,
   });
   if (user) {
+    const token = await generateToken(user._id);
     res.status(201).json({
       _id: user._id,
       username: user.username,
       email: user.email,
       password: user.password,
       pic: user.pic,
-      token: await generateToken(user._id),
+      token,
     });
     await user.save();
   } else {
@@ -45,13 +46,14 @@ const login = async (req, res) => {
   /* const isPassword = await user.matchPassword(password);
   console.log(isPassword); */
   if (user && (await user.matchPassword(password, await user.password))) {
+    const token = await generateToken(user._id);
     res.json({
       _id: user._id,
       username: user.username,
       email: user.email,
       password: user.password,
       pic: user.pic,
-      token: await generateToken(user._id),
+      token,
     });
   } else {
     res.status(401);
