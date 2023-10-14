@@ -87,6 +87,7 @@ function Login() {
         setCheck(true);
       } catch (err) {
         setLoading(false);
+        console.log(err);
         toast.error("Invalid email or password", {
           position: "top-center",
           autoClose: 3000,
