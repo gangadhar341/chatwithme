@@ -10,7 +10,7 @@ const {
 } = require("../Controller/userControllers.js");
 
 router.post("/register", register);
-router.route("/").post(login).get(allusers);
+router.route("/").post(login).get(protect, allusers);
 router.route("/getuser").get(protect, getUser);
 router.route("/updatepic").put(protect, updatePic);
 

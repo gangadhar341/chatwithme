@@ -20,9 +20,14 @@ const notificationRoutes = require("./routes/notificationRoutes.js");
 app.use(bodyParser.json({ limit: "5mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://chatwithme-zuf0.onrender.com",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: allowedOrigins,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // This option enables cookies and other credentials to be sent with the request
   })
