@@ -8,6 +8,17 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 
+const connectDB = require("./mongoose_conn.js");
+
+const userRoutes = require("./routes/userRoutes.js");
+const { notFound, errorHandler } = require("./middleware/errorMiddlewares.js");
+const chatRoutes = require("./routes/chatRoutes.js");
+const messageRoutes = require("./routes/messageRoutes.js");
+const notificationRoutes = require("./routes/notificationRoutes.js");
+
+app.use(bodyParser.json({ limit: "5mb" }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const allowedOrigins = [
   "http://localhost:3000",
   "https://chatwithme-zuf0.onrender.com",
@@ -21,22 +32,6 @@ app.use(
   })
 );
 
-const connectDB = require("./mongoose_conn.js");
-
-const userRoutes = require("./routes/userRoutes.js");
-const { notFound, errorHandler } = require("./middleware/errorMiddlewares.js");
-const chatRoutes = require("./routes/chatRoutes.js");
-const messageRoutes = require("./routes/messageRoutes.js");
-const notificationRoutes = require("./routes/notificationRoutes.js");
-
-app.use(bodyParser.json({ limit: "5mb" }));
-app.use(bodyParser.urlencoded({ extended: true }));
-
-/* const allowedOrigins = [
-  "http://localhost:3000",
-  "https://chatwithme-zuf0.onrender.com",
-]; */
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -49,12 +44,17 @@ app.use("/api/notification", notificationRoutes);
 
 const __dirname1 = path.resolve();
 //console.log(path.join(__dirname1, "../frontend/build"));
+console.log(path.resolve(__dirname1, "../frontend", "build", "index.html"));
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname1, "../frontend/build")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname1, "../frontend", "build", "index.html"))
-  );
+  app.get("*", (req, res) => {
+    console.log(path.resolve(__dirname1, "../frontend", "build", "index.html")),
+      res.sendFile(
+        path.resolve(__dirname1, "../frontend", "build", "index.html")
+      );
+  });
 } else {
   app.get("/", (req, res) => {
     res.send("API is running..");
@@ -67,7 +67,7 @@ app.use(errorHandler);
 
 connectDB()
   .then(() => {
-    const PORT = process.env.PORT;
+    const PORT = process.env.PORT || 5000;
     const server = app.listen(PORT, () => {
       console.log(`server is running on http://localhost:${PORT}`);
 
